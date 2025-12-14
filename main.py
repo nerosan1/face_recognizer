@@ -3,6 +3,8 @@ from tkinter import ttk
 from PIL import Image,ImageTk 
 
 from student import Student
+from train import Train
+from face_recognition import Face_Recognition
 import os
 
 
@@ -53,10 +55,10 @@ class Face_Recognition_System:
         det_img_btn=det_img_btn.resize((180,180),Image.ANTIALIAS)
         self.det_img1=ImageTk.PhotoImage(det_img_btn)
 
-        det_b1 = Button(bg_img,image=self.det_img1,cursor="hand2",)
+        det_b1 = Button(bg_img,command=self.face_rec,image=self.det_img1,cursor="hand2",)
         det_b1.place(x=480,y=100,width=180,height=180)
 
-        det_b1_1 = Button(bg_img,text="Face Detector",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
+        det_b1_1 = Button(bg_img,command=self.face_rec,text="Face Detector",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
         det_b1_1.place(x=480,y=280,width=180,height=45)
 
          # Attendance System  button 3
@@ -90,10 +92,10 @@ class Face_Recognition_System:
         tra_img_btn=tra_img_btn.resize((180,180),Image.ANTIALIAS)
         self.tra_img1=ImageTk.PhotoImage(tra_img_btn)
 
-        tra_b1 = Button(bg_img,image=self.tra_img1,cursor="hand2",)
+        tra_b1 = Button(bg_img,command=self.train_pannels,image=self.tra_img1,cursor="hand2",)
         tra_b1.place(x=250,y=330,width=180,height=180)
 
-        tra_b1_1 = Button(bg_img,text="Data Train",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
+        tra_b1_1 = Button(bg_img,text="Data Train",command=self.train_pannels,cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
         tra_b1_1.place(x=250,y=510,width=180,height=45)
 
         # Photo   button 6
