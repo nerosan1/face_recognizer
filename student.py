@@ -534,15 +534,20 @@ class Student:
                 cap=cv2.VideoCapture(0)
                 img_id=0
                 while True:
-                    ret,my_frame=cap.read()
-                    if face_croped(my_frame) is not None:
-                        img_id+=1
-                        face=cv2.resize(face_croped(my_frame),(200,200))
-                        face=cv2.cvtColor(face,cv2.COLOR_BGR2GRAY)
-                        file_path="data_img/stdudent."+str(id)+"."+str(img_id)+".jpg"
-                        cv2.imwrite(file_path,face)
-                        cv2.putText(face,str(img_id),(50,50),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),2)        
-                        cv2.imshow("Capture Images",face)
+                    ret, my_frame = cap.read()
+                    cropped_face = face_croped(my_frame)
+
+                    if cropped_face is not None:
+                        img_id += 1
+                        face = cv2.resize(cropped_face, (200,200))
+                        face = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
+
+                        file_path = f"data_img/student.{id}.{img_id}.jpg"
+                        cv2.imwrite(file_path, face)
+
+                        cv2.putText(face, str(img_id), (50,50),
+                                    cv2.FONT_HERSHEY_COMPLEX, 1, (255,255,255), 2)
+                        cv2.imshow("Capture Images", face)
 
                     if cv2.waitKey(1)==13 or int(img_id)==100:
                         break

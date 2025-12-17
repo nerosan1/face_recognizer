@@ -5,6 +5,9 @@ from PIL import Image,ImageTk
 from student import Student
 from train import Train
 from face_recognition import Face_Recognition
+from attendance import Attendance
+from developer import Developer
+from helpsupport import Helpsupport
 import os
 
 
@@ -66,10 +69,10 @@ class Face_Recognition_System:
         att_img_btn=att_img_btn.resize((180,180),Image.ANTIALIAS)
         self.att_img1=ImageTk.PhotoImage(att_img_btn)
 
-        att_b1 = Button(bg_img,image=self.att_img1,cursor="hand2",)
+        att_b1 = Button(bg_img,command=self.attendance_pannel,image=self.att_img1,cursor="hand2",)
         att_b1.place(x=710,y=100,width=180,height=180)
 
-        att_b1_1 = Button(bg_img,text="Attendance",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
+        att_b1_1 = Button(bg_img,command=self.attendance_pannel,text="Attendance",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
         att_b1_1.place(x=710,y=280,width=180,height=45)
 
          # Help  Support  button 4
@@ -77,10 +80,10 @@ class Face_Recognition_System:
         hlp_img_btn=hlp_img_btn.resize((180,180),Image.ANTIALIAS)
         self.hlp_img1=ImageTk.PhotoImage(hlp_img_btn)
 
-        hlp_b1 = Button(bg_img,image=self.hlp_img1,cursor="hand2",)
+        hlp_b1 = Button(bg_img,command=self.helpSupport,image=self.hlp_img1,cursor="hand2",)
         hlp_b1.place(x=940,y=100,width=180,height=180)
 
-        hlp_b1_1 = Button(bg_img,text="Help Support",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
+        hlp_b1_1 = Button(bg_img,command=self.helpSupport,text="Help Support",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
         hlp_b1_1.place(x=940,y=280,width=180,height=45)
 
 
@@ -114,10 +117,10 @@ class Face_Recognition_System:
         dev_img_btn=dev_img_btn.resize((180,180),Image.ANTIALIAS)
         self.dev_img1=ImageTk.PhotoImage(dev_img_btn)
 
-        dev_b1 = Button(bg_img,image=self.dev_img1,cursor="hand2",)
+        dev_b1 = Button(bg_img,command=self.developer,image=self.dev_img1,cursor="hand2",)
         dev_b1.place(x=710,y=330,width=180,height=180)
 
-        dev_b1_1 = Button(bg_img,text="Developers",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
+        dev_b1_1 = Button(bg_img,command=self.developer,text="Developers",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
         dev_b1_1.place(x=710,y=510,width=180,height=45)
 
         # exit   button 8
@@ -125,10 +128,10 @@ class Face_Recognition_System:
         exi_img_btn=exi_img_btn.resize((180,180),Image.ANTIALIAS)
         self.exi_img1=ImageTk.PhotoImage(exi_img_btn)
 
-        exi_b1 = Button(bg_img,image=self.exi_img1,cursor="hand2",)
+        exi_b1 = Button(bg_img,command=self.Close,image=self.exi_img1,cursor="hand2",)
         exi_b1.place(x=940,y=330,width=180,height=180)
 
-        exi_b1_1 = Button(bg_img,text="Exit",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
+        exi_b1_1 = Button(bg_img,command=self.Close,text="Exit",cursor="hand2",font=("tahoma",15,"bold"),bg="white",fg="navyblue")
         exi_b1_1.place(x=940,y=510,width=180,height=45)
 
 
@@ -151,7 +154,7 @@ class Face_Recognition_System:
         self.new_window=Toplevel(self.root)
         self.app=Attendance(self.new_window)
     
-    def developr(self):
+    def developer(self):
         self.new_window=Toplevel(self.root)
         self.app=Developer(self.new_window)
     
